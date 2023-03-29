@@ -2,11 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../constants/colors.dart';
+import '../../providers/busList_provider.dart';
 import 'widgets/box_widget.dart';
 import 'widgets/bus_list_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    BusListProvider().getBusList(context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

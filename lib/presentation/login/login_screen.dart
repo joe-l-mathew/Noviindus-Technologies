@@ -80,11 +80,13 @@ class LoginScreen extends StatelessWidget {
             textColor: AppColors.whiteColor,
             text: "Login",
             onPressed: () async {
-              await LoginProvider().loginUser(
+              bool loggedIn = await LoginProvider().loginUser(
                   nameController.text, passwordController.text, context);
-              Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (builder) => const HomeScreen()),
-                  (route) => false);
+              if (loggedIn) {
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (builder) => const HomeScreen()),
+                    (route) => false);
+              }
             },
           ),
           const SizedBox(
