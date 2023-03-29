@@ -8,7 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.primaryColor,
+        backgroundColor: AppColors.splashScreenColor,
         body: Center(
           child: Text(""),
         ));
