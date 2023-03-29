@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
 import '../../widgets/button_widget.dart';
+import '../home_screen/home_screen.dart';
 import 'text_field_widget.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -77,7 +78,11 @@ class LoginScreen extends StatelessWidget {
             buttonColor: AppColors.splashScreenColor,
             textColor: AppColors.whiteColor,
             text: "Login",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (builder) => HomeScreen()),
+                  (route) => false);
+            },
           ),
           const SizedBox(
             height: 20,
