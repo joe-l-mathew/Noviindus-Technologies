@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '../../widgets/button_widget.dart';
 
-class DriverScreen extends StatelessWidget {
-  const DriverScreen({super.key});
+class DriverListScreen extends StatelessWidget {
+  const DriverListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
