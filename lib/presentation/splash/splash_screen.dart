@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../constants/colors.dart';
+import '../../widgets/button_widget.dart';
+import '../login/login_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -15,24 +17,15 @@ class SplashScreen extends StatelessWidget {
         child:
             SvgPicture.asset("assets/logo.svg", semanticsLabel: 'Moovbe Logo'),
       ),
-      floatingActionButton: GestureDetector(
-        onTap: () {},
-        child: Container(
-          width: 316,
-          height: 58,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.white,
-          ),
-          child: const Center(
-              child: Text(
-            'Get Started',
-            style: TextStyle(
-                color: AppColors.splashScreenColor,
-                fontSize: 20,
-                fontWeight: FontWeight.bold),
-          )),
-        ),
+      floatingActionButton: ButtonWidget(
+        textColor: AppColors.splashScreenColor,
+        buttonColor: Colors.white,
+        text: 'Get Started',
+        onPressed: () {
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (builder) => const LoginScreen()),
+              (route) => false);
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../../widgets/button_widget.dart';
+import 'text_field_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -55,50 +57,34 @@ class LoginScreen extends StatelessWidget {
             ],
           ),
           //bottom Part
+          const SizedBox(
+            height: 20,
+          ),
           TextFormFieldWidget(
             controller: nameController,
             hintText: "Enter Username",
+          ),
+          const SizedBox(
+            height: 20,
           ),
 
           TextFormFieldWidget(
             controller: passwordController,
             hintText: "Enter Password",
-          )
+          ),
+          const Spacer(),
+          ButtonWidget(
+            buttonColor: AppColors.splashScreenColor,
+            textColor: AppColors.whiteColor,
+            text: "Login",
+            onPressed: () {},
+          ),
+          const SizedBox(
+            height: 20,
+          ),
         ],
       ),
-    );
-  }
-}
-
-class TextFormFieldWidget extends StatelessWidget {
-  final String hintText;
-  final TextEditingController controller;
-  const TextFormFieldWidget({
-    super.key,
-    required this.hintText,
-    required this.controller,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: AppColors.textFormFieldColor,
-        ),
-        child: TextField(
-          decoration: InputDecoration(
-            hintText: hintText,
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                  width: 3, color: AppColors.textFormFieldColor),
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-          ),
-        ),
-      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
