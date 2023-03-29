@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '../../widgets/button_widget.dart';
 import '../home_screen/home_screen.dart';
-import 'text_field_widget.dart';
+import '../../widgets/text_field_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
 import '../../widgets/button_widget.dart';
-import '../login/text_field_widget.dart';
+import '../../widgets/text_field_widget.dart';
 
 class AddDriverScreen extends StatelessWidget {
   const AddDriverScreen({super.key});

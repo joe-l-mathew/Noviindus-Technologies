@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/colors.dart';
+import '../constants/colors.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   final String hintText;
@@ -20,13 +20,17 @@ class TextFormFieldWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: AppColors.textFormFieldColor,
         ),
-        child: TextField(
-          decoration: InputDecoration(
-            hintText: hintText,
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(
-                  width: 3, color: AppColors.textFormFieldColor),
-              borderRadius: BorderRadius.circular(10.0),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8),
+          child: TextField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: hintText,
+              enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(
+                    width: 3, color: AppColors.textFormFieldColor),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
             ),
           ),
         ),
