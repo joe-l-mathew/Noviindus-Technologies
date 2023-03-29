@@ -28,20 +28,20 @@ class BoxWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 10.0, bottom: 2, left: 10),
+            padding: const EdgeInsets.only(top: 10.0, bottom: 2, left: 10),
             child: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                   color: AppColors.whiteColor,
                   fontSize: 26,
                   fontWeight: FontWeight.bold),
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(left: 10),
             child: Text(
               subTitle,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.whiteColor,
                 fontSize: 10,
               ),

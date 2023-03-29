@@ -13,8 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Noviindus Technologies',
-      home: SplashScreen(),
-    );
+        title: 'Noviindus Technologies', home: SplashScreen());
   }
 }
