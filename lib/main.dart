@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'presentation/splash/splash_screen.dart';
+import 'utilities/user_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +14,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        title: 'Noviindus Technologies', home: SplashScreen());
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => UserProvider()),
+      ],
+      child: const MaterialApp(
+          title: 'Noviindus Technologies', home: SplashScreen()),
+    );
   }
 }

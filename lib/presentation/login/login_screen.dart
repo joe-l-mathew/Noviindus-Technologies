@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../../providers/login_provider.dart';
 import '../../widgets/button_widget.dart';
-import '../home_screen/home_screen.dart';
 import '../../widgets/text_field_widget.dart';
+import '../home_screen/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -78,9 +79,11 @@ class LoginScreen extends StatelessWidget {
             buttonColor: AppColors.splashScreenColor,
             textColor: AppColors.whiteColor,
             text: "Login",
-            onPressed: () {
+            onPressed: () async {
+              await LoginProvider().loginUser(
+                  nameController.text, passwordController.text, context);
               Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (builder) => HomeScreen()),
+                  MaterialPageRoute(builder: (builder) => const HomeScreen()),
                   (route) => false);
             },
           ),

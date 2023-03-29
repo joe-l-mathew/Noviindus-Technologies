@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../constants/colors.dart';
 
 class BusScreen extends StatelessWidget {
-  final int indexOfVacancy;    // this reffers to 2 when 2x2 and 1 when 1x3
+  final int indexOfVacancy; // this reffers to 2 when 2x2 and 1 when 1x3
   final String driverName;
   final String licenseNo;
   const BusScreen(
