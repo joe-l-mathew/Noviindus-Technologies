@@ -23,6 +23,7 @@ class TextFormFieldWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(left: 8.0, right: 8),
           child: TextField(
+            controller: controller,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: hintText,

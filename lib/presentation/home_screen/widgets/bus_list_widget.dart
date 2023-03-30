@@ -26,11 +26,22 @@ class BusListWidget extends StatelessWidget {
               title: Text("KSRTC"),
               subtitle: const Text("Swift Scania P-Series"),
               leading: Container(
-                color: Colors.red,
+                // color: Colors.red,
                 height: 73,
                 width: 79,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/bus2.png"),
+                  ),
+                ),
               ),
               trailing: Container(
+                child: Center(
+                  child: Text(
+                    "Manage",
+                    style: TextStyle(color: AppColors.whiteColor, fontSize: 10),
+                  ),
+                ),
                 height: 30,
                 width: 70,
                 decoration: BoxDecoration(

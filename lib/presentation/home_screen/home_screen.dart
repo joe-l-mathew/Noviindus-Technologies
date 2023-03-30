@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 import '../../constants/colors.dart';
 import '../../providers/busList_provider.dart';
+import '../../utilities/bus_list_provider_state.dart';
+import '../driver_screen/driver_list_screen.dart';
 import 'widgets/box_widget.dart';
 import 'widgets/bus_list_widget.dart';
 
@@ -42,29 +45,43 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        body: const Column(
+        body: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                BoxWidget(
+                const BoxWidget(
                   title: "Bus",
                   subTitle: "Manage your Bus",
                   image: "assets/bus.png",
                   bgColor: AppColors.splashScreenColor,
                 ),
-                BoxWidget(
-                  title: "Driver",
-                  subTitle: "Manage your Bus",
-                  image: "assets/driver.png",
-                  bgColor: AppColors.blackColor,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (builder) => const DriverListScreen()));
+                  },
+                  child: const BoxWidget(
+                    title: "Driver",
+                    subTitle: "Manage your Driver",
+                    image: "assets/driver.png",
+                    bgColor: AppColors.blackColor,
+                  ),
                 ),
               ],
             ),
-            Expanded(child: BusListWidget())
+            Expanded(
+                child:
+                    Provider.of<BusListProviderState>(context).busList == null
+                        ? const Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : const BusListWidget())
           ],
         ));
   }

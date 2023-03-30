@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../../providers/driver_management.dart';
 import '../../widgets/button_widget.dart';
+import '../../widgets/show_snackbar.dart';
 import '../../widgets/text_field_widget.dart';
 
 class AddDriverScreen extends StatelessWidget {
@@ -41,7 +43,17 @@ class AddDriverScreen extends StatelessWidget {
           textColor: AppColors.whiteColor,
           buttonColor: AppColors.splashScreenColor,
           text: "Save",
-          onPressed: () {}),
+          onPressed: () async {
+            print(nameController.text);
+            if (nameController.text.isNotEmpty &&
+                licenceNoController.text.isNotEmpty) {
+              await DriverManagement().addDriver(nameController.text,
+                  "xxxxxxxxx", licenceNoController.text, context);
+              Navigator.pop(context);
+            } else {
+              showSnackbar(context, "Invalid Input");
+            }
+          }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
