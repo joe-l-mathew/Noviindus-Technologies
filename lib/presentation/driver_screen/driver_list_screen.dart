@@ -18,7 +18,7 @@ class DriverListScreen extends StatefulWidget {
 class _DriverListScreenState extends State<DriverListScreen> {
   @override
   void initState() {
-    // TODO: implement initState
+    
     WidgetsBinding.instance.addPostFrameCallback((_) {
       DriverListProvider().getDriverList(context);
     });
@@ -122,7 +122,7 @@ class _DriverListScreenState extends State<DriverListScreen> {
           text: "Add Driver",
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (builder) => AddDriverScreen()));
+                MaterialPageRoute(builder: (builder) => const AddDriverScreen()));
           }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

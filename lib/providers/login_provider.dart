@@ -14,7 +14,7 @@ class LoginProvider {
       String userName, String password, BuildContext context) async {
     String url = "${ApiConstants.baseUrl}/LoginApi";
     final response = await http.post(Uri.parse(url),
-        body: {'username': 'admin_user', 'password': '123admin789'});
+        body: {'username': userName, 'password': password});
     var responseData = json.decode(response.body);
     if (responseData['status'] == true) {
       UserLoginModel user = UserLoginModel.fromJson(responseData);

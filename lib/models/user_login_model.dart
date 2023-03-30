@@ -24,6 +24,7 @@ class UserLoginModel {
   }
 
   Map<String, dynamic> toJson() {
+    // ignore: no_leading_underscores_for_local_identifiers
     final _data = <String, dynamic>{};
     _data['status'] = status;
     _data['name'] = name;

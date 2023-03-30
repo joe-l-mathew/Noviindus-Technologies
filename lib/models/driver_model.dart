@@ -12,6 +12,7 @@ class DriverModel {
   }
 
   Map<String, dynamic> toJson() {
+    // ignore: no_leading_underscores_for_local_identifiers
     final _data = <String, dynamic>{};
     _data['status'] = status;
     _data['driver_list'] = driverList.map((e)=>e.toJson()).toList();
@@ -39,6 +40,7 @@ class DriverList {
   }
 
   Map<String, dynamic> toJson() {
+    // ignore: no_leading_underscores_for_local_identifiers
     final _data = <String, dynamic>{};
     _data['id'] = id;
     _data['name'] = name;

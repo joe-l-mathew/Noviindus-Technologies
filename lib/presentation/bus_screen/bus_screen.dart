@@ -1,5 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:noviindus_technologies/presentation/driver_screen/driver_list_screen.dart';
 
 import '../../constants/colors.dart';
 
@@ -27,53 +30,59 @@ class BusScreen extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          Center(
-            child: Stack(
-              alignment: Alignment.topLeft,
-              children: [
-                Container(
-                  height: 116,
-                  width: size.width - 70,
-                  decoration: BoxDecoration(
-                    color: AppColors.blackColor,
-                    borderRadius: BorderRadius.circular(10),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (builder) => const DriverListScreen()));
+            },
+            child: Center(
+              child: Stack(
+                alignment: Alignment.topLeft,
+                children: [
+                  Container(
+                    height: 116,
+                    width: size.width - 70,
+                    decoration: BoxDecoration(
+                      color: AppColors.blackColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Align(
+                          alignment: Alignment.bottomRight,
+                          child: Image.asset('assets/driver.png')),
+                    ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Image.asset('assets/driver.png')),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        driverName,
-                        style: const TextStyle(
-                            color: AppColors.whiteColor,
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "License no: $licenseNo",
-                        style: const TextStyle(
-                          color: AppColors.whiteColor,
-                          fontSize: 10,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 20,
                         ),
-                      )
-                    ],
+                        Text(
+                          driverName,
+                          style: const TextStyle(
+                              color: AppColors.whiteColor,
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "License no: $licenseNo",
+                          style: const TextStyle(
+                            color: AppColors.whiteColor,
+                            fontSize: 10,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           SizedBox(

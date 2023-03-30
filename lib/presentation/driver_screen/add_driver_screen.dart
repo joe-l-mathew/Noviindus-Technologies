@@ -18,7 +18,7 @@ class AddDriverScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.blackColor,
-        title: Text("Add Driver"),
+        title: const Text("Add Driver"),
         centerTitle: true,
       ),
       body: Padding(
@@ -44,11 +44,11 @@ class AddDriverScreen extends StatelessWidget {
           buttonColor: AppColors.splashScreenColor,
           text: "Save",
           onPressed: () async {
-            print(nameController.text);
             if (nameController.text.isNotEmpty &&
                 licenceNoController.text.isNotEmpty) {
               await DriverManagement().addDriver(nameController.text,
                   "xxxxxxxxx", licenceNoController.text, context);
+              // ignore: use_build_context_synchronously
               Navigator.pop(context);
             } else {
               showSnackbar(context, "Invalid Input");

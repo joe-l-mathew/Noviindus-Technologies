@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -17,7 +15,7 @@ class DriverManagement {
           'Bearer ${Provider.of<UserProvider>(context, listen: false).user!.access}'
     };
 
-    var response = await http.post(
+await http.post(
         Uri.parse(
             "${ApiConstants.baseUrl}/DriverApi/${Provider.of<UserProvider>(context, listen: false).user!.urlId}/"),
         headers: headers,
@@ -26,9 +24,10 @@ class DriverManagement {
           "mobile": mobileNumber,
           "license_no": licenseNumber
         });
-    var responseData = json.decode(response.body);
+    // ignore: use_build_context_synchronously
     showSnackbar(context, "Added Successfuly");
 
+    // ignore: use_build_context_synchronously
     DriverListProvider().getDriverList(context);
   }
 

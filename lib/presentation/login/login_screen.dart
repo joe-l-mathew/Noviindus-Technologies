@@ -83,6 +83,7 @@ class LoginScreen extends StatelessWidget {
               bool loggedIn = await LoginProvider().loginUser(
                   nameController.text, passwordController.text, context);
               if (loggedIn) {
+                // ignore: use_build_context_synchronously
                 Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(builder: (builder) => const HomeScreen()),
                     (route) => false);

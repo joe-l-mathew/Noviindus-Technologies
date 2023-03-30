@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class BusListProvider {
             "${ApiConstants.baseUrl}/BusListApi/${Provider.of<UserProvider>(context, listen: false).user!.urlId}/"),
         headers: headers);
     var responseData = json.decode(response.body);
+    // ignore: use_build_context_synchronously
     Provider.of<BusListProviderState>(context, listen: false)
         .setBus(responseData['bus_list']);
   }
