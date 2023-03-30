@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => DriverListProviderState()),
       ],
       child: const MaterialApp(
-          title: 'Noviindus Technologies', home: SplashScreen()),
+          debugShowCheckedModeBanner: false,
+          title: 'Noviindus Technologies',
+          home: SplashScreen()),
     );
   }
 }
