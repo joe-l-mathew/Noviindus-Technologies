@@ -17,7 +17,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    BusListProvider().getBusList(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BusListProvider().getBusList(context);
+    });
+
     super.initState();
   }
 

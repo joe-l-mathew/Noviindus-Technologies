@@ -5,13 +5,14 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 import '../models/user_login_model.dart';
-import '../utilities/user_provider.dart';
+import '../utilities/user_provider_state.dart';
 import '../widgets/show_snackbar.dart';
+import 'api_constants.dart';
 
 class LoginProvider {
   Future<bool> loginUser(
       String userName, String password, BuildContext context) async {
-    String url = "http://flutter.noviindus.co.in/api/LoginApi";
+    String url = "${ApiConstants.baseUrl}/LoginApi";
     final response = await http.post(Uri.parse(url),
         body: {'username': 'admin_user', 'password': '123admin789'});
     var responseData = json.decode(response.body);
